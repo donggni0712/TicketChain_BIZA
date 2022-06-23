@@ -1,0 +1,18 @@
+.header, .footer{
+    border: 0px;
+    opacity: 0.8px;
+}
+
+.header{
+    background-color: #dfdfdf;
+}
+
+.okButton{
+    background-color:#9c003e;
+    border-color:#9c003e;
+}
+
+.okButton:hover {
+    background-color: #810034;
+    border-color: #810034;
+}
