@@ -1,5 +1,6 @@
-import {Row,Col,Card} from 'react-bootstrap';
 import './tickets.css'
+import {Row,Col,Card} from 'react-bootstrap';
+
 
 function Tickets({tickets}){
   const rows = tickets.slice(tickets.length/2);
@@ -15,7 +16,7 @@ function Tickets({tickets}){
                     <span className='placeName'>{tickets[rowIndex*2].info.placeName}</span>
                     <span className='expired'>{tickets[rowIndex*2].info.expired}</span>
                     <a href={tickets[rowIndex*2].info.webUrl} target={'blank'} className='webUrl'>{tickets[rowIndex*2].info.webUrl}</a>
-                    <span className='canTrade'>{tickets[rowIndex*2].info.canTrade == true ? <>교환 가능</>: <>교환 불가능</>}</span>
+                    <span className='canTrade'>{tickets[rowIndex*2].info.canTrade === true ? <>교환 가능</>: <>교환 불가능</>}</span>
                   </Card>
                 </Col>
                 <Col className='ticket_col'>
@@ -27,7 +28,7 @@ function Tickets({tickets}){
                     <span className='placeName'>{tickets[rowIndex*2+1].info.placeName}</span>
                     <span className='expired'>{tickets[rowIndex*2+1].info.expired}</span>
                     <a href={tickets[rowIndex*2].info.webUrl}  target={'blank'}  className='webUrl'>{tickets[rowIndex*2+1].info.webUrl}</a>
-                    <span className='canTrade'>{tickets[rowIndex*2+1].info.canTrade == true ? <>교환 가능</>: <>교환 불가능</>}</span>
+                    <span className='canTrade'>{tickets[rowIndex*2+1].info.canTrade === true ? <>교환 가능</>: <>교환 불가능</>}</span>
                  </Card>) : null
                   }
                 </Col>

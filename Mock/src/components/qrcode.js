@@ -1,11 +1,13 @@
-import {Container, Modal} from 'react-bootstrap';
-import {DEFAULT_QR_CODE} from '../env'
-import QRCode from "qrcode.react";
 import './qrcode.css'
+import QRCode from "qrcode.react";
+import {Container, Modal} from 'react-bootstrap';
+const DEFAULT_QR_CODE = 'DEFAULT'
+
+
 
 function QrComponent({qrvalue, setQrvalue}){
 
-    return  <Modal centered show={qrvalue!=DEFAULT_QR_CODE} onHide={()=>{
+    return  <Modal centered show={qrvalue!==DEFAULT_QR_CODE} onHide={()=>{
             setQrvalue(DEFAULT_QR_CODE);
             }}>
             <Modal.Header closeButton className="header">

@@ -1,5 +1,5 @@
-import {Card} from 'react-bootstrap';
 import './tickets.css'
+import {Card} from 'react-bootstrap';
 import Slider from "react-slick";
 
 function TicketSilder({tickets}){
@@ -21,7 +21,7 @@ function TicketSilder({tickets}){
                     {tickets[index].info.placeName}<br/>
                     {tickets[index].info.expired}<br/>
                     {tickets[index].info.webUrl}<br/>
-                    {tickets[index].info.canTrade == true ? <>교환 가능</>: <>교환 불가능</>}
+                    {tickets[index].info.canTrade === true ? <>교환 가능</>: <>교환 불가능</>}
                   </Card>
                   </div>
     }
