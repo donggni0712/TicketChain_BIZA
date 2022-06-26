@@ -8,8 +8,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.3.3",
     "pg-hstore": "^2.3.4",
     "qrcode.react": "^3.0.2",
     "react": "^18.1.0",
@@ -17,7 +15,6 @@
     "react-dom": "^18.1.0",
     "react-scripts": "4.0.3",
     "react-slick": "^0.29.0",
-    "sequelize": "^6.21.0",
     "sequelize-auto": "^0.8.8",
     "sqlite3": "^5.0.8",
     "web-vitals": "^2.1.4"
@@ -45,8 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "sequelize-cli": "^6.4.1"
   }
 }
