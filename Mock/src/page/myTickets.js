@@ -8,17 +8,16 @@ import QrComponent from '../components/qrcode';
 
 import {fetchTicketsOf} from '../db/dbController.js';
 import {useState, useEffect} from 'react';
-//import * as KlipAPI from "../api/UseKlip.js"
 
-const DEFAULT_QR_CODE = 'DEFAULT'
+const DEFAULT = 'DEFAULT'
 
 
 const isMobile = window.screen.width >= 1280 ? false : true;
 
 function MyTickets() {
-  const [qrvalue, setQrvalue] = useState(DEFAULT_QR_CODE);
+  const [qrvalue, setQrvalue] = useState(DEFAULT);
   const [tickets, setTickets] = useState([])
-  const [myAddress, setMyAddress] = useState('0xTestPrivateKey1')
+  const [myAddress, setMyAddress] = useState(DEFAULT)
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({
     title:"MODAL",
@@ -26,18 +25,16 @@ function MyTickets() {
     onConfirm : () =>{},
   });
 
-  // const getUserData = () =>{
-    // setModalData({
-    //   title:"Klip 지갑 연동",
-    //   content:"진행을 누르면 지갑 연동이 진행됩니다.",
-    //   onConfirm: ()=>{
-    //     KlipAPI.getAddress(setQrvalue, async (address)=>{
-    //         setMyAddress(address);
-    //       });
-    //   }
-    // })
-    // setShowModal(true)
-  //}
+  const getUserData = () =>{
+    setModalData({
+      title:"로그인",
+      content:"로그인하시겠습니까?",
+      onConfirm: ()=>{
+        setMyAddress('0xTestPrivateKey1');
+      }
+    })
+    setShowModal(true)
+  }
 
   const fetchMyTickets = async () =>{
     // if (myAddress == DEFAULT_ADDRESS){
@@ -51,17 +48,16 @@ function MyTickets() {
 
   useEffect((el)=>{
     fetchMyTickets()
-  },[])
+  },[myAddress  ])
 
   return (
     <div className="MyTickets">
-      {/* <Head myAddress={myAddress} getUserData={getUserData}/> */}
+      <Head myAddress={myAddress} getUserData={getUserData}/>
 
       <QrComponent qrvalue={qrvalue} setQrvalue ={setQrvalue}/>
 
       {isMobile ? <TicketSilder tickets={tickets} /> : <Tickets tickets={tickets}/>}
       <PopUp showModal={showModal} setShowModal={setShowModal} modalData={modalData}/>
-    dd
     </div>
   );
 }
