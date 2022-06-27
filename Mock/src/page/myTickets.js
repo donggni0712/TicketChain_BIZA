@@ -1,30 +1,30 @@
 
 //Components
-// import TicketSilder from '../components/ticketSlider';
-// import Tickets from '../components/tickets';
-// import Head from '../components/head';
-// import PopUp from '../components/modal';
-// import QrComponent from '../components/qrcode';
+import TicketSilder from '../components/ticketSlider';
+import Tickets from '../components/tickets';
+import Head from '../components/head';
+import PopUp from '../components/modal';
+import QrComponent from '../components/qrcode';
 
 import {fetchTicketsOf} from '../db/dbController.js';
 import {useState, useEffect} from 'react';
 //import * as KlipAPI from "../api/UseKlip.js"
 
-//const DEFAULT_QR_CODE = 'DEFAULT'
+const DEFAULT_QR_CODE = 'DEFAULT'
 
 
-//const isMobile = window.screen.width >= 1280 ? false : true;
+const isMobile = window.screen.width >= 1280 ? false : true;
 
 function MyTickets() {
-  // const [qrvalue, setQrvalue] = useState(DEFAULT_QR_CODE);
+  const [qrvalue, setQrvalue] = useState(DEFAULT_QR_CODE);
   const [tickets, setTickets] = useState([])
-  const [myAddress, setMyAddress] = useState('0xbC14CB49b93Ee36AfdF4b49eCB7C9512f9353c93')
-  // const [showModal, setShowModal] = useState(false);
-  // const [modalData, setModalData] = useState({
-  //   title:"MODAL",
-  //   content:"content",
-  //   onConfirm : () =>{},
-  // });
+  const [myAddress, setMyAddress] = useState('0xTestPrivateKey1')
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState({
+    title:"MODAL",
+    content:"content",
+    onConfirm : () =>{},
+  });
 
   // const getUserData = () =>{
     // setModalData({
@@ -55,12 +55,12 @@ function MyTickets() {
 
   return (
     <div className="MyTickets">
-      {/* <Head myAddress={myAddress} getUserData={getUserData}/>
+      {/* <Head myAddress={myAddress} getUserData={getUserData}/> */}
 
       <QrComponent qrvalue={qrvalue} setQrvalue ={setQrvalue}/>
 
       {isMobile ? <TicketSilder tickets={tickets} /> : <Tickets tickets={tickets}/>}
-      <PopUp showModal={showModal} setShowModal={setShowModal} modalData={modalData}/> */}
+      <PopUp showModal={showModal} setShowModal={setShowModal} modalData={modalData}/>
     dd
     </div>
   );
