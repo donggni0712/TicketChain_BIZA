@@ -1,15 +1,15 @@
 export var wallets = [
     {
-    privateKey : "0xTestPublicKey1",
-    publicKey : "0xTestPrivateKey1"
+    publicKey : "0xTestPublicKey1",
+    privateKey : "0xTestPrivateKey1"
     },
     {
-    privateKey : "0xTestPublicKey2",
-    publicKey : "0xTestPrivateKey2"
+    publicKey : "0xTestPublicKey2",
+    privateKey : "0xTestPrivateKey2"
     },
     {
-    privateKey : "0xTestPublicKey3",
-    publicKey : "0xTestPrivateKey3"
+    publicKey : "0xTestPublicKey3",
+    privateKey : "0xTestPrivateKey3"
     },
 ]
 
@@ -55,31 +55,31 @@ export var tickets = [
 export var ticketOwners = [
     {
         ticketid:0,
-        owner:"0xTestPrivateKey1"
+        owner:"0xTestPublicKey1"
     },
     {
         ticketid:0,
-        owner:"0xTestPrivateKey2"
+        owner:"0xTestPublicKey2"
     },
     {
         ticketid:1,
-        owner:"0xTestPrivateKey1"
+        owner:"0xTestPublicKey1"
     },
     {
         ticketid:1,
-        owner:"0xTestPrivateKey3"
+        owner:"0xTestPublicKey3"
     },
     {
         ticketid:2,
-        owner:"0xTestPrivateKey1"
+        owner:"0xTestPublicKey1"
     },
     {
         ticketid:2,
-        owner:"0xTestPrivateKey2"
+        owner:"0xTestPublicKey2"
     },
     {
         ticketid:3,
-        owner:"0xTestPrivateKey1"
+        owner:"0xTestPublicKey1"
     },
 
 ]
