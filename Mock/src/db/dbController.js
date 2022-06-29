@@ -1,20 +1,28 @@
-import {wallets,ticketOwners,tickets} from './constants'
-
-function getTicketInfo(id){
+function getTicketInfo(id, tickets){
   let res = tickets.filter((el)=>{
-    if(el.id==id) return true;
+    if(el.id===id) return true;
     return false;
   })
   //console.log(res)
   return res[0];
 }
 
-export const fetchTicketsOf = async (address)=>{
+export function getPublicKey(privateKey, walletsDB){
+  const result  = walletsDB.reduce((res,el)=>{
+    if(el.privateKey===privateKey){
+      res = el.publicKey
+    }
+    return res
+  },"DEFAULT")
+  return result;
+}
+
+export const fetchTicketsOf = async (address, ticketOwners, tickets)=>{
   const ticketIds = [];
 
   // Fetch Balance
   const _balance = ticketOwners.reduce((sum,el)=>{
-     if(el.owner==address){
+     if(el.owner===address){
       // Fetch Token IDs
       const id = el.ticketid
       //console.log(`id = ${id}`)
@@ -28,7 +36,7 @@ export const fetchTicketsOf = async (address)=>{
   // Fetch Token Names
   const ticketInfos = [];
   for(let cur of ticketIds){
-    const ticket = getTicketInfo(cur)
+    const ticket = getTicketInfo(cur,tickets)
     //console.log(ticket)
     const _ticketInfo = {
       ticketName : ticket.name,
@@ -42,10 +50,10 @@ export const fetchTicketsOf = async (address)=>{
     ticketInfos.push(_ticketInfo);
   }
 
-  const tickets = [];
+  const _tickets = [];
   for(let i=0;i<_balance;i++){
-    tickets.push({info: ticketInfos[i], id:ticketIds[i]})
+    _tickets.push({info: ticketInfos[i], id:ticketIds[i]})
   }
 
-  return tickets;
+  return _tickets;
 }

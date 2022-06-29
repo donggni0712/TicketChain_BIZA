@@ -6,7 +6,7 @@ import Head from '../components/head';
 import PopUp from '../components/modal';
 import QrComponent from '../components/qrcode';
 
-import {fetchTicketsOf} from '../db/dbController.js';
+import {fetchTicketsOf, getPublicKey} from '../db/dbController.js';
 import {useState, useEffect} from 'react';
 
 const DEFAULT = 'DEFAULT'
@@ -14,23 +14,25 @@ const DEFAULT = 'DEFAULT'
 
 const isMobile = window.screen.width >= 1280 ? false : true;
 
-function MyTickets() {
+function MyTickets({walletsDB, ticketsDB, ticketOwnersDB, setTicketsDB, setWalletsDB, setTicketOwnersDB}) {
   const [qrvalue, setQrvalue] = useState(DEFAULT);
-  const [tickets, setTickets] = useState([])
+  const [tickets, setTickets] = useState([]);
   const [myAddress, setMyAddress] = useState(DEFAULT)
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({
     title:"MODAL",
     content:"content",
+    isInput : false,
     onConfirm : () =>{},
   });
 
   const getUserData = () =>{
     setModalData({
       title:"로그인",
-      content:"로그인하시겠습니까?",
-      onConfirm: ()=>{
-        setMyAddress('0xTestPrivateKey1');
+      content:"privateKey를 입력해주세요.",
+      isInput : true,
+      onConfirm: (key)=>{
+        setMyAddress(getPublicKey(key,walletsDB));
       }
     })
     setShowModal(true)
@@ -41,14 +43,13 @@ function MyTickets() {
     //   alert("NO ADDRESS");
     //   return;
     // }
-    const _tickets = await fetchTicketsOf(myAddress)
-    console.log(_tickets)
-    setTickets(_tickets);
+    const _tickets = await fetchTicketsOf(myAddress, ticketOwnersDB, ticketsDB)
+     setTickets(_tickets);
   }
 
   useEffect((el)=>{
     fetchMyTickets()
-  },[myAddress  ])
+  },[myAddress])
 
   return (
     <div className="MyTickets">

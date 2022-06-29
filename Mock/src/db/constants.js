@@ -1,15 +1,15 @@
 export var wallets = [
     {
     privateKey : "0xTestPublicKey1",
-    piblicKey : "0xTestPrivateKey1"
+    publicKey : "0xTestPrivateKey1"
     },
     {
     privateKey : "0xTestPublicKey2",
-    piblicKey : "0xTestPrivateKey2"
+    publicKey : "0xTestPrivateKey2"
     },
     {
     privateKey : "0xTestPublicKey3",
-    piblicKey : "0xTestPrivateKey3"
+    publicKey : "0xTestPrivateKey3"
     },
 ]
 

@@ -10,6 +10,7 @@
 
 .ticket{
     padding:1rem;
+    width: 100%;
     border-color: #575757;
     background-color: #454545;
 }
